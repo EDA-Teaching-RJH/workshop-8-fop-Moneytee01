@@ -1,0 +1,45 @@
+#Part1: The limits of Basic Python Strings
+
+#Using the script:
+#email = input("whats's your email? ").strip()
+#if "@" in email:
+     #print("valid")
+     #else:
+     #print("Invalid email")
+# This is a simple script that asks for an email, which then reads the inputed "@" to determine wather its valid or not.
+
+#The flaw fo this script is that its only making assumptiions that any string input that contains "@" is valid (e.g "hello@")
+
+#Fixing that flaw: by adding a second condition "if, in, and"
+import re
+def main():
+    email = input("What's your email? ").strip() #this line prompts the user to input their email address, removes any leading or trailing whitespace using the strip() method, and assigns the cleaned email address to the variable 'email'.
+
+    if "@" in email: #this line checks if the "@" symbol is present in the email address. If it is not found, the condition will evaluate to False, and the code will skip to the else block.
+        username, domain = email.split("@")
+
+        if username and domain.endswith(".ac.uk"):
+            print("Valid") #this script if spacific to uni based email address
+        else:
+            print("Invalid") #if the email address does not contain "@" or does not meet the specified conditions for a valid email, it will print "Invalid".
+    
+    #Part2: indroducing the reModule
+
+
+# def is_valid_email(email):#this line defines a function named is_valid_email that takes a single parameter email. The function will use regular expressions to check if the provided email address is valid according to specific criteria.
+
+
+# if re.search(r".+@.+\.ac.uk$", email): #this regular expression checks if the email address has a username (.+), followed by an "@" symbol, then a domain name (.+), and finally ends with ".ac.uk" ($ indicates the end of the string)
+#     print("valid email") #will print valid email if the regular expression matches the input email address
+# #Part3: Tightening the rules with Anchors and Sets
+
+# if re.search(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email):
+#     print("valid email") #this regular expression checks for a more general email format, allowing for various characters in the username and domain, and ensuring a valid top-level domain (TLD) of at least 2 characters.
+
+# #Part4: Shorthand Syntax and "OR"Logic
+# if re.search(r"^[\w\.-]+@[\w\.-]+\.(ac\.uk|gov\.uk|nhs\.net)$", email):
+#     print("valid email") #this regular expression uses shorthand syntax to simplify the pattern, where \w matches any word character (alphanumeric and underscore), and the "OR" logic allows for either a specific domain or a more general format.
+#     #to expand the rules to incdlude other domains
+    
+main()
+    

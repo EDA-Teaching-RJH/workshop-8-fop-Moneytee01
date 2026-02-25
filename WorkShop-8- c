@@ -1,0 +1,20 @@
+def main():
+    x = int(input("What's x? ")) #this line prompts the user to input a value for x, converts it to an integer using int(), and assigns it to the variable x.
+    print("x squared is", square(x))#this line prints the result of squaring x by calling the square() function and passing x as an argument. The output will display "x squared is" followed by the calculated value.
+
+def square(n): #this line defines a function named square that takes a single parameter n. The function will perform a specific operation (in this case, squaring the input) and return the result when called.
+    return n * n #this function takes a number n as input and returns the result of multiplying n by itself, effectively calculating the square of n.
+
+if __name__== "__main__": #this line checks if the script is being run directly (as the main program) rather than imported as a module in another script. If this condition is true, it calls the main() function to execute the program.
+    main()
+def main():
+    test_square() #this line calls the test_square() function, which is likely defined elsewhere in the code, to run a series of tests to verify that the square() function is working correctly.
+
+def test_square():
+    if square(2) != 4: #this line checks if the result of calling square(2) is not equal to 4. If this condition is true, it indicates that the square function is not working correctly for the input 2.
+        print("2 squared should be 4") #if the previous condition is true, this line will print a message indicating that the expected result for squaring 2 should be 4, which helps identify the issue in the square function.
+        if square(3) != 9: #this line checks if the result of calling square(3) is not equal to 9. If this condition is true, it indicates that the square function is not working correctly for the input 3.
+            print("3 squared was not 9") #if the previous condition is true, this line will print a message indicating that the expected result for squaring 3 should be 9, which helps identify the issue in the square function.
+        
+if __name__== "__main__":
+    main()
